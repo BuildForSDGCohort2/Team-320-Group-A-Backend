@@ -25,6 +25,7 @@ AUTH_USER_MODEL = 'authentication.User'
 INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'hospital.apps.HospitalConfig',
+    'patient.apps.PatientConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,8 +38,8 @@ INSTALLED_APPS = [
 
 #changing the lifespan of the token 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=30),
-    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=1),
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=7),
+    'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7),
 } 
 
 
