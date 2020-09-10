@@ -12,7 +12,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         max_length=68, min_length=6, write_only=True)
     class Meta:
         model = User
-        fields = ['email', 'username', 'password'] 
+        fields = ['id', 'email', 'username', 'password']
     def validate(self, attrs):
         email = attrs.get('email', '')
         username = attrs.get('username', '')       
@@ -82,7 +82,7 @@ class SetNewPasswordSerializer(serializers.Serializer):
                 raise AuthenticationFailed('The reset link is invalid', 401)
             user.set_password(password)
             user.save()
-            return (user)
+            return user
         except Exception as e:
             raise AuthenticationFailed('The reset link is invalid', 401)
         return super().validate(attrs)

@@ -33,4 +33,3 @@ def update_profile(sender, instance, created, **kwargs):
     if created == False:
         instance.hospital.save()
         print('hospital updated')
-
