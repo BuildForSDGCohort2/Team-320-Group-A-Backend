@@ -49,16 +49,16 @@ class PatientHospitalDetails(generics.GenericAPIView, mixins.RetrieveModelMixin,
                              mixins.DestroyModelMixin):
     serializer_class = PatientHospitalSerializer
     queryset = HospitalHistory.objects.all()
-    # lookup_field = 'code_no'  # default lookup_field is our primary key bur to use something different
+    lookup_field = 'code_no'  # default lookup_field is our primary key bur to use something different
 
-    def get(self, request, pk=None):
-        return self.retrieve(request, pk)
+    def get(self, request, code_no=None):
+        return self.retrieve(request, code_no)
 
-    def put(self, request, pk=None):
-        return self.update(request, pk)
+    def put(self, request, code_no=None):
+        return self.update(request, code_no)
 
-    def delete(self, request, pk=None):
-        return self.destroy(request, pk)
+    def delete(self, request, code_no=None):
+        return self.destroy(request, code_no)
 
 
 '''
@@ -87,16 +87,16 @@ class PatientDetails(generics.GenericAPIView, mixins.RetrieveModelMixin, mixins.
                       mixins.DestroyModelMixin):
     serializer_class = PatientSerializer
     queryset = Patient.objects.all()
-    # lookup_field = 'code_no'
+    lookup_field = 'code_no'
 
-    def get(self, request, pk=None):
-        return self.retrieve(request, pk)
+    def get(self, request, code_no=None):
+        return self.retrieve(request, code_no)
 
-    def put(self, request, pk=None):
-        return self.update(request, pk)
+    def put(self, request, code_no=None):
+        return self.update(request, code_no)
 
-    def delete(self, request, pk=None):
-        return self.destroy(request, pk)
+    def delete(self, request, code_no=None):
+        return self.destroy(request, code_no)
 
 
 

@@ -29,10 +29,10 @@ from patient.serializers import PatientHospitalSerializer, PatientSerializer
 class PatientHospitalDetails(generics.GenericAPIView, mixins.ListModelMixin, mixins.RetrieveModelMixin, ):
     serializer_class = PatientHospitalSerializer
     queryset = HospitalHistory.objects.all()
-    # lookup_field = 'pk'
+    lookup_field = 'code_no'
 
-    def get(self, request, pk, user=None):
-        return self.retrieve(request, pk, user)
+    def get(self, request, code_no, user=None):
+        return self.list(request, code_no, user)
 
     # def put(self, request, id=None):
     #     return self.update(request, id)
@@ -44,10 +44,10 @@ class PatientHospitalDetails(generics.GenericAPIView, mixins.ListModelMixin, mix
 class PatientDetails(generics.GenericAPIView, mixins.ListModelMixin, mixins.RetrieveModelMixin):
     serializer_class = PatientSerializer
     queryset = Patient.objects.all()
-    # lookup_field = 'pk'
+    lookup_field = 'code_no'
 
-    def get(self, request, pk=None):
-        return self.retrieve(request, pk)
+    def get(self, request, code_no=None):
+        return self.retrieve(request, code_no)
 
     # def put(self, request, id=None):
     #     return self.update(request, id)
